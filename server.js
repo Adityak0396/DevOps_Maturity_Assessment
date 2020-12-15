@@ -1,12 +1,15 @@
 const express = require('express');
-const mysql = require('mysql');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const es6Renderer = require('express-es6-template-engine');
 const path = require('path');
 var d3 = require("d3");
+const mongoose = require('mongoose');
+
 const app = express();
 app.use(express.static('public'));
+
+
 
 //User to store ans.
 var User = null;
@@ -40,6 +43,7 @@ var IaaS_level = 'Base';
 var Total_level = 'Base';
 
 //*****************SQL Connection******************//
+/*
 app.use(bodyParser.urlencoded({
     extended: true
 }));
@@ -63,7 +67,16 @@ connection.connect(function(err){
 	
 	console.log('connected....');
 });
+*/
+/////////////////////////// MongoDB Connection //////////////////////////
+app.use(express.urlencoded({ extended: false }));
 
+// Connect to MongoDB
+mongoose.connect('mongodb://mongo:27017/', { useNewUrlParser: true })
+.then(() => console.log('MongoDB Connected'))
+.catch(err => console.log(err));
+
+const Item = require('./models/Item');
 
 //*****************Get Methods**************************//
 app.get('/', function(req, res){
@@ -1253,6 +1266,6 @@ app.post('/CMon_Exam_Sub', function(req, res, next) {
 });
 
 /////////////////////////////////////////////////////////////
-app.listen(8000,()=>{
+app.listen(8080,()=>{
   console.log('Server is running on port 8000');
 });
