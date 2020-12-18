@@ -1,0 +1,35 @@
+# Summery 
+
+This project is maily used to evaluate project or organization for DevOps maturity assessment to understand where they stand in devops by assist them and to grow we will give some suggesions to them.
+
+# Complete work
+
+For sql database all work is done expect dockerization
+   # For MongoDB
+   1. User Sign up Script
+   2. User Sign in Script
+   3. User Admin sign in Script
+   4. When code will run create auto matically default Admin 
+        Admin Main id "adityak15@kpit.com" & pass. "123456"
+   5. insert question in DB
+   6. Without Admin Sign in user Can not edit, delete and insert question.
+
+# Incomplete Work
+
+1. need to fetch question for 6 type of questionnaire
+2. need to add Update query for mongo
+3. need to add Delete query for mongo
+
+# How to run code
+1. server.js file is important
+To run code
+  1. install nodejs
+  2. install mongodb
+  3. CMD "node server.js"
+
+# Dockerization
+1. Dockerfile           :- In dockerfile we write instruction for creating nodejs image
+2. docker-compose.yml   :- In docker-compose.yml build nodejs project and creating image of "mongo" & "nodejs prj" It mainly used to communicate node and mongo image.
+3. CMD 
+  1. docker-compose build
+  2. docker-compose up
